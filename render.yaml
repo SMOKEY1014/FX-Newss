@@ -1,0 +1,12 @@
+services:
+  - type: web
+    name: fx-news-dashboard
+    env: python
+
+    buildCommand: |
+      pip install -r backend/requirements.txt
+      cd frontend
+      npm install
+      npm run build
+
+    startCommand: gunicorn backend.app:app
